@@ -4,7 +4,8 @@
   "description": "Pattern based fixture generator for urls",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "coveralls": "gulp test && cat ./test/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
