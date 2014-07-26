@@ -104,4 +104,49 @@ describe('fixturl', function() {
 
     });
 
+    it('generates a multiple url fixtures from a combined config ( param & query array )', function () {
+
+        var result = fixturl('/some/path/:id', {
+                param: [
+                    { id: '12345' },
+                    { id: '6789'  }
+                ],
+                query: [
+                    { foo: 'bar' },
+                    { foo: 'bar', buzz: 'fizz' }
+                ]
+            });
+
+        expect(result.length).to.eql(4);
+
+        ['/some/path/12345?foo=bar',
+         '/some/path/12345?foo=bar&buzz=fizz',
+         '/some/path/6789?foo=bar',
+         '/some/path/6789?foo=bar&buzz=fizz'].forEach(function (url) {
+            return expect(result.indexOf(url) !== -1).to.be.true;
+         });
+
+    });
+
+    it('generates a multiple url fixtures from a combined config ( single array )', function () {
+
+        var result = fixturl('/some/path/:id', {
+                param: [
+                    { id: '12345' },
+                    { id: '6789'  }
+                ],
+                query: {
+                    foo: 'bar'
+                }
+            });
+
+        expect(result.length).to.eql(2);
+
+        ['/some/path/12345?foo=bar',
+         '/some/path/6789?foo=bar'].forEach(function (url) {
+            return expect(result.indexOf(url) !== -1).to.be.true;
+         });
+
+    });
+
 });

@@ -28,6 +28,24 @@ var fixturl  = require('fixturl'),
 ```
 > Example invocation
 
+### Combinations
+
+Should you wish to generation multiple combinations for a url this is possible by specifying an array for either params for query.
+
+```javascript
+fixturl('/some/path/:id', {
+    param: [
+        { id: '12345' },
+        { id: '6789'  }
+    ],
+    query: [
+        { foo: 'bar' },
+        { foo: 'bar', buzz: 'fizz' }
+    ]
+});
+```
+> Example of url combinations
+
 `fixturl` will return an array containing generated fixtures. For convenience the following additional Array methods are made available.
 
 Behind the scenes `fixturl` uses [reverend](reverend-url) to support express like route parameter subsitution.
@@ -51,6 +69,7 @@ fixtures.random(); // Returns a random item in the array.
 
 ## Release History
 
+- **0.1.1** Support for combined configs
 - **0.1.0** Initial release
 
 ## License
