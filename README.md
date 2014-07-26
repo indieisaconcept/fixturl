@@ -46,7 +46,7 @@ fixtures.last(); // Returns the last item in the array.
 ### random
 
 ```javascript
-fixtures.last(); // Returns a random item in the array.
+fixtures.random(); // Returns a random item in the array.
 ```
 
 ## Release History
