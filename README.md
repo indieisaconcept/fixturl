@@ -28,6 +28,8 @@ var fixturl  = require('fixturl'),
 ```
 > Example invocation
 
+Behind the scenes `fixturl` uses [reverend](reverend-url) to support express like route parameter subsitution.
+
 ### Combinations
 
 Should you wish to generation multiple combinations for a url this is possible by specifying an array for either params for query.
@@ -47,8 +49,6 @@ fixturl('/some/path/:id', {
 > Example of url combinations
 
 `fixturl` will return an array containing generated fixtures. For convenience the following additional Array methods are made available.
-
-Behind the scenes `fixturl` uses [reverend](reverend-url) to support express like route parameter subsitution.
 
 ### first
 
