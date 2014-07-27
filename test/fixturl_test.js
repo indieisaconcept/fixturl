@@ -71,7 +71,7 @@ describe('fixturl', function() {
 
     });
 
-    it('generates a multiple url fixtures', function () {
+    it('generates multiple url fixtures', function () {
 
         var result = fixturl('/some/path/:id', [
                 {
@@ -89,7 +89,7 @@ describe('fixturl', function() {
 
     });
 
-    it('generates a multiple unique url fixtures', function () {
+    it('generates multiple unique url fixtures', function () {
 
 	var result = fixturl('/some/path/:id', [
 		{
@@ -113,7 +113,7 @@ describe('fixturl', function() {
 
     });
 
-    it('generates a multiple url fixtures from a combined config ( param & query array )', function () {
+    it('generates multiple url fixtures from a combined config ( param & query array )', function () {
 
         var result = fixturl('/some/path/:id', {
                 param: [
@@ -137,7 +137,7 @@ describe('fixturl', function() {
 
     });
 
-    it('generates a multiple url fixtures from a combined config ( single array )', function () {
+    it('generates multiple url fixtures from a combined config ( single array )', function () {
 
         var result = fixturl('/some/path/:id', {
 		param: [ { id: '12345' }, { id: '6789'  } ],
