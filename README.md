@@ -69,6 +69,7 @@ fixtures.random(); // Returns a random item in the array.
 
 ## Release History
 
+- **0.1.4** Ensure unique values are returned
 - **0.1.3** Keyword updates
 - **0.1.2** Documentation fixes
 - **0.1.1** Support for combined configs

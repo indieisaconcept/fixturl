@@ -51,9 +51,7 @@ describe('fixturl', function() {
     it('generates a single url fixture with a query', function () {
 
         var result = fixturl('/some/path', {
-            query: {
-                foo: 'bar'
-            }
+	    query: { foo: 'bar' }
         });
 
         expect(result.length).to.eql(1);
@@ -64,12 +62,8 @@ describe('fixturl', function() {
     it('generates a single url fixture with both params & query', function () {
 
         var result = fixturl('/some/path/:id', {
-            param: {
-                id: '12345',
-            },
-            query: {
-                foo: 'bar'
-            }
+	    param: { id: '12345' },
+	    query: { foo: 'bar' }
         });
 
         expect(result.length).to.eql(1);
@@ -81,20 +75,35 @@ describe('fixturl', function() {
 
         var result = fixturl('/some/path/:id', [
                 {
-                    param: {
-                        id: '12345',
-                    },
-                    query: {
-                        foo: 'bar'
-                    }
+		    param: { id: '12345' },
+		    query: { foo: 'bar'  }
+		}, {
+		    param: { id: '6789' },
+		    query: { foo: 'bar', buzz: 'fizz' }
+		}
+	    ]);
+
+	expect(result.length).to.eql(2);
+	expect(result[0]).to.eql('/some/path/12345?foo=bar');
+	expect(result[1]).to.eql('/some/path/6789?foo=bar&buzz=fizz');
+
+    });
+
+    it('generates a multiple unique url fixtures', function () {
+
+	var result = fixturl('/some/path/:id', [
+		{
+		    param: { id: '12345' },
+		    query: { foo: 'bar'  }
+		}, {
+		    param: { id: '6789' },
+		    query: { foo: 'bar', buzz: 'fizz' }
                 }, {
-                    param: {
-                        id: '6789',
-                    },
-                    query: {
-                        foo: 'bar',
-                        buzz: 'fizz'
-                    }
+		    param: { id: '6789' },
+		    query: { foo: 'bar', buzz: 'fizz' }
+		}, {
+		    param: [ { id: '6789' } ],
+		    query: [ { foo: 'bar', buzz: 'fizz' } ]
                 }
             ]);
 
@@ -131,13 +140,8 @@ describe('fixturl', function() {
     it('generates a multiple url fixtures from a combined config ( single array )', function () {
 
         var result = fixturl('/some/path/:id', {
-                param: [
-                    { id: '12345' },
-                    { id: '6789'  }
-                ],
-                query: {
-                    foo: 'bar'
-                }
+		param: [ { id: '12345' }, { id: '6789'  } ],
+		query: { foo: 'bar' }
             });
 
         expect(result.length).to.eql(2);
