@@ -32,7 +32,7 @@ Behind the scenes `fixturl` uses [reverend](reverend-url) to support express lik
 
 ### Combinations
 
-Should you wish to generation multiple combinations for a url this is possible by specifying an array for either params for query.
+Should you wish to generate multiple combinations for a url this is possible by specifying an array for either params for query.
 
 ```javascript
 fixturl('/some/path/:id', {
