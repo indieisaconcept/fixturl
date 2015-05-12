@@ -26,7 +26,7 @@
   "dependencies": {
     "URIjs": "^1.13.2",
     "es6-shim": "^0.14.0",
-    "reverend": "^0.3.0"
+    "path-to-regexp": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^1.9.1",
